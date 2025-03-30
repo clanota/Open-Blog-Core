@@ -27,11 +27,61 @@ if (isset($_POST['change_password'])) {
     $confirmPassword = $_POST['confirm_password'];
 
     if (!password_verify($oldPassword, $config['admin_password'])) {
-        die('旧密码错误');
+        die('<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+        <meta name="renderer" content="webkit">
+        <link rel="stylesheet" href="https://npm.elemecdn.com/mdui@1.0.2/dist/css/mdui.min.css">
+        <title>The old password is wrong</title>
+    </head>
+    <body>
+        <div class="mdui-container"><br>
+            <div class="mdui-card">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">
+                        旧密码错误
+                    </div>
+                    <div class="mdui-card-primary-subtitle">
+                        如果真忘了就把config.json删了吧...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <script src="https://npm.elemecdn.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    </body>
+</html>');
     }
 
     if ($newPassword !== $confirmPassword) {
-        die('两次输入的密码不一致');
+        die('<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+        <meta name="renderer" content="webkit">
+        <link rel="stylesheet" href="https://npm.elemecdn.com/mdui@1.0.2/dist/css/mdui.min.css">
+        <title>Passwords do not match</title>
+    </head>
+    <body>
+        <div class="mdui-container"><br>
+            <div class="mdui-card">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">
+                        密码不一致
+                    </div>
+                    <div class="mdui-card-primary-subtitle">
+                        仔细检查一下，别打错了
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <script src="https://npm.elemecdn.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    </body>
+</html>');
     }
 
     $config['admin_password'] = password_hash($newPassword, PASSWORD_DEFAULT);

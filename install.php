@@ -2,7 +2,32 @@
 if (file_exists(__DIR__ . '/config.json')) {
     $config = json_decode(file_get_contents(__DIR__ . '/config.json'), true);
     if ($config['installed'] ?? false) {
-        die('系统已安装，请勿重复执行安装程序！');
+        die('<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+        <meta name="renderer" content="webkit">
+        <link rel="stylesheet" href="https://npm.elemecdn.com/mdui@1.0.2/dist/css/mdui.min.css">
+        <title>Already installed</title>
+    </head>
+    <body>
+        <div class="mdui-container"><br>
+            <div class="mdui-card">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">
+                        已经安装过了
+                    </div>
+                    <div class="mdui-card-primary-subtitle">
+                        如果需要再次安装就把config.json删了吧
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <script src="https://npm.elemecdn.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    </body>
+</html>');
     }
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -11,7 +36,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mkdir($dataDir, 0755, true);
     }
     if (empty($_POST['password'])) {
-        die('密码不能为空');
+        die('<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+        <meta name="renderer" content="webkit">
+        <link rel="stylesheet" href="https://npm.elemecdn.com/mdui@1.0.2/dist/css/mdui.min.css">
+        <title>The password is empty</title>
+    </head>
+    <body>
+        <div class="mdui-container"><br>
+            <div class="mdui-card">
+                <div class="mdui-card-primary">
+                    <div class="mdui-card-primary-title">
+                        管理员密码为空
+                    </div>
+                    <div class="mdui-card-primary-subtitle">
+                        设一个密码吧...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <script src="https://npm.elemecdn.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    </body>
+</html>');
     }
     $config = [
         'site_name' => $_POST['site_name'],
