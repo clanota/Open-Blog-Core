@@ -73,40 +73,95 @@ if (isset($_GET['logout'])) {
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="https://npm.elemecdn.com/mdui@1.0.2/dist/css/mdui.min.css">
     <title>管理员面板</title>
 </head>
 <body>
-        <h2>网站配置</h2>
+    <div class="mdui-container">
+    <br>
+    <div class="mdui-card">
+    <div class="mdui-card-primary">
+    <div class="mdui-card-primary-title">网站配置</div>
+    <div class="mdui-card-primary-subtitle">设置标题与描述</div>
+    </div>
+    <div class="mdui-container">
     <form method="post" action="?config=1">
-        <p>站点名称：</p><input type="text" name="site_name" value="<?= $config['site_name'] ?? '' ?>" required>
-        <p>站点描述：</p><textarea name="site_description" required><?= $config['site_description'] ?? '' ?></textarea><br>
-        <button type="submit">保存配置</button>
+    站点名称：
+    <input type="text" name="site_name" value="<?= $config['site_name'] ?? '' ?>" class="mdui-textfield-input" placeholder="站点名称" required><br>
+    站点描述：
+    <textarea name="site_description" class="mdui-textfield-input" placeholder="站点描述" required><?= $config['site_description'] ?? '' ?></textarea>
+    <br>
+    <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">保存配置</button>
+    <br>
     </form>
-
-    <h2>修改密码</h2>
+    </div>
+    </div>
+    <br>
+    <div class="mdui-card">
+    <div class="mdui-card-primary">
+    <div class="mdui-card-primary-title">登录管理</div>
+    <div class="mdui-card-primary-subtitle">管理你的登录密码</div>
+    </div>
+    <div class="mdui-container">
     <form method="post">
-        <input type="password" name="old_password" placeholder="旧密码" required><br>
-        <input type="password" name="new_password" placeholder="新密码" required><br>
-        <input type="password" name="confirm_password" placeholder="确认新密码" required><br>
-        <button type="submit" name="change_password">修改密码</button>
+        旧密码：
+        <input type="password" name="old_password" placeholder="旧密码" class="mdui-textfield-input" required><br>
+        新密码：
+        <input type="password" name="new_password" placeholder="新密码" class="mdui-textfield-input" required><br>
+        确认新密码：
+        <input type="password" name="confirm_password" placeholder="确认新密码" class="mdui-textfield-input" required>
+        <br>
+    <div class="mdui-row-xs-2">
+    <div class="mdui-col">
+        <button type="submit" name="change_password" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">修改密码</button>
+        </div>
+        <div class="mdui-col">
+        <a href="admin.php?logout=1" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">退出登录</a>
+        </div>
+        </div>
+        <br>
     </form>
-
-    <h2>文章管理</h2>
-    <a href="admin.php?logout=1">退出登录</a>
+    </div>
+    </div>
+    <br>
+    <div class="mdui-card">
+    <div class="mdui-card-primary">
+    <div class="mdui-card-primary-title">文章发布</div>
+    <div class="mdui-card-primary-subtitle">发布你的文章</div>
+    </div>
+    <div class="mdui-container">
     <form method="post">
-        <input type="text" name="title" placeholder="标题" required><br>
-        <textarea name="content" placeholder="内容" required></textarea><br>
-        <button type="submit">发布文章</button>
-    </form>
-
-    <h3>现有文章</h3>
-    <?php foreach ($posts as $post): ?>
+       标题：
+        <input type="text" name="title" placeholder="标题" class="mdui-textfield-input" required><br>
+        内容：
+        <textarea name="content" placeholder="内容" class="mdui-textfield-input" required></textarea>
+        <br>
+        <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">发布文章</button>
+    </form><br>
+   </div>
+   </div>
+   <br>
+   <div class="mdui-card">
+    <div class="mdui-card-primary">
+    <div class="mdui-card-primary-title">文章列表</div>
+    <div class="mdui-card-primary-subtitle">管理你的文章</div>
+    </div>
+    <div class="mdui-card-content">
+    <?php 
+    foreach (array_reverse($posts) as $post): 
+    ?>
         <div>
             <h4><?= $post['title'] ?></h4>
             <p><?= $post['date'] ?></p>
             <p><?= $post['content'] ?></p>
-            <a href="?delete=<?= $post['id'] ?>">删除</a>
+            <a href="?delete=<?= $post['id'] ?>"  class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">删除</a>
         </div>
     <?php endforeach; ?>
+    </div>
+    </div>
+    <br>
 </body>
 </html>

@@ -30,18 +30,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>博客安装向导</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="https://npm.elemecdn.com/mdui@1.0.2/dist/css/mdui.min.css">
+    <title>安装向导</title>
 </head>
 <body>
-    <h2>博客安装向导</h2>
+    <div class="mdui-container">
+    <br>
+    <div class="mdui-card">
+    <div class="mdui-card-primary">
+    <div class="mdui-card-primary-title">安装向导</div>
+    <div class="mdui-card-primary-subtitle">感谢安装Open-Blog-Core-GUI</div>
+    </div>
+    <div class="mdui-container">
     <form method="post">
-        <p>站点名称：</p>
-        <input type="text" name="site_name" required>
-        <p>站点描述：</p>
-        <textarea name="site_description" required></textarea>
-        <p>设置管理员密码：</p>
-        <input type="password" name="password" required>
-        <button type="submit">立即安装</button>
+        站点名称：
+        <input type="text" name="site_name" placeholder="站点名称" class="mdui-textfield-input" required><br>
+        站点描述：
+        <textarea name="site_description" placeholder="站点描述" class="mdui-textfield-input" required></textarea><br>
+        管理员密码：
+        <input type="password" name="password" placeholder="管理员密码" class="mdui-textfield-input" required>
+        <br>
+        <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">立即安装</button>
+        <br>
     </form>
+    <div>
+    </div>
 </body>
 </html>
