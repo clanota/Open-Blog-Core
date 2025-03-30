@@ -15,13 +15,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="https://npm.elemecdn.com/mdui@1.0.2/dist/css/mdui.min.css">
     <title>管理员登录</title>
 </head>
 <body>
-    <h2>管理员登录</h2>
+    <div class="mdui-container">
+    <br>
+    <div class="mdui-card">
+    <div class="mdui-card-primary">
+    <div class="mdui-card-primary-title">管理员登录</div>
+    <div class="mdui-card-primary-subtitle">请输入密码</div>
+    </div>
+    <div class="mdui-container">
     <form method="post">
-        <input type="password" name="password" placeholder="管理员密码" required>
-        <button type="submit">登录</button>
+    <div class="mdui-textfield">
+    <input type="password" name="password" placeholder="管理员密码" class="mdui-textfield-input" required>
+    </div>
+    <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">登录后台</button>
+    <br>
     </form>
+    </div>
+    </div>
+    </div>
 </body>
 </html>
