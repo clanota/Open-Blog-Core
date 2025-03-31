@@ -254,6 +254,9 @@ if (isset($_GET['logout'])) {
     </div>
     </div>
     </div>
+    </div>
+    </div>
+    </div>
     <br>
     <div class="mdui-card">
     <div class="mdui-card-primary">
@@ -268,6 +271,7 @@ if (isset($_GET['logout'])) {
      头像API：Tencent QQ<br>
      当前版本：V25.3.31<br>
      『愿一生可爱，一生被爱』
+    </div>
     </div>
     <br>
 </body>
