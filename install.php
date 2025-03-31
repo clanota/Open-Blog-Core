@@ -68,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'site_description' => $_POST['site_description'],
         'db_path' => $dataDir . '/posts.json',
         'installed' => true,
-        'admin_password' => password_hash($_POST['password'], PASSWORD_DEFAULT)
+        'admin_password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
+        'qq' => $_POST['qq']
     ];
     $jsonConfig = json_encode($config, JSON_PRETTY_PRINT);
     file_put_contents(__DIR__ . '/config.json', $jsonConfig);
@@ -99,9 +100,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         站点名称：
         <input type="text" name="site_name" placeholder="站点名称" class="mdui-textfield-input" required><br>
         站点描述：
-        <textarea name="site_description" placeholder="站点描述" class="mdui-textfield-input" required></textarea><br>
+        <textarea name="site_description" class="mdui-textfield-input" placeholder="站点描述" required style="min-height: 1em; overflow: hidden; resize: none;" oninput="this.style.height = ''; this.style.height = Math.min(this.scrollHeight, 500) + 'px'"></textarea><br>
         管理员密码：
-        <input type="password" name="password" placeholder="管理员密码" class="mdui-textfield-input" required>
+        <input type="password" name="password" placeholder="管理员密码" class="mdui-textfield-input" required><br>
+        QQ号：
+        <input type="text" name="qq" placeholder="QQ号" class="mdui-textfield-input" required>
         <br>
         <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">立即安装</button>
         <br>
