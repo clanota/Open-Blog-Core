@@ -54,13 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="mdui-card-primary-title">管理员登录</div>
     <div class="mdui-card-primary-subtitle">请输入密码</div>
     </div>
-    <div class="mdui-container">
+    <div class="mdui-card-content">
     <form method="post">
     <div class="mdui-textfield">
     <input type="password" name="password" placeholder="管理员密码" class="mdui-textfield-input" required>
     </div>
     <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">登录后台</button>
-    <br>
     </form>
     </div>
     </div>

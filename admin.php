@@ -160,7 +160,7 @@ if (isset($_GET['logout'])) {
     <div class="mdui-card-primary-title">网站配置</div>
     <div class="mdui-card-primary-subtitle">设置标题与描述</div>
     </div>
-    <div class="mdui-container">
+    <div class="mdui-card-content">
     <form method="post" action="?config=1">
     站点名称：
     <input type="text" name="site_name" value="<?= $config['site_name'] ?? '' ?>" class="mdui-textfield-input" placeholder="站点名称" required><br>
@@ -174,7 +174,6 @@ if (isset($_GET['logout'])) {
     自定义JS：
     <textarea name="custom_js" class="mdui-textfield-input" placeholder="自定义JavaScript代码" style="min-height: 1em; overflow: hidden; resize: none;" oninput="this.style.height = ''; this.style.height = Math.min(this.scrollHeight, 500) + 'px'"><?= $config['custom_js'] ?? '' ?></textarea><br>
     <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">保存配置</button>
-    <br>
     </form>
     </div>
     </div>
@@ -184,7 +183,7 @@ if (isset($_GET['logout'])) {
     <div class="mdui-card-primary-title">登录管理</div>
     <div class="mdui-card-primary-subtitle">管理你的登录状态和密码</div>
     </div>
-    <div class="mdui-container">
+    <div class="mdui-card-content">
     <form method="post">
         旧密码：
         <input type="password" name="old_password" placeholder="旧密码" class="mdui-textfield-input" required><br>
@@ -204,7 +203,6 @@ if (isset($_GET['logout'])) {
         <a href="admin.php?logout=1" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">退出登录</a>
         </div>
         </div>
-        <br>
     </form>
     </div>
     </div>
@@ -214,7 +212,7 @@ if (isset($_GET['logout'])) {
     <div class="mdui-card-primary-title">文章编辑</div>
     <div class="mdui-card-primary-subtitle">编辑与发布你的文章</div>
     </div>
-    <div class="mdui-container">
+    <div class="mdui-card-content">
     <form method="post">
        标题：
         <input type="text" name="title" placeholder="标题" class="mdui-textfield-input" value="<?= isset($editPost) ? $editPost['title'] : '' ?>" required><br>
@@ -225,7 +223,7 @@ if (isset($_GET['logout'])) {
         <?php endif; ?>
         <br>
         <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">发布文章</button>
-    </form><br>
+    </form>
    </div>
    </div>
    <br>
@@ -254,9 +252,6 @@ if (isset($_GET['logout'])) {
     </div>
     </div>
     </div>
-    </div>
-    </div>
-    </div>
     <br>
     <div class="mdui-card">
     <div class="mdui-card-primary">
@@ -271,6 +266,7 @@ if (isset($_GET['logout'])) {
      头像API：Tencent QQ<br>
      当前版本：V25.3.31<br>
      『愿一生可爱，一生被爱』
+    </div>
     </div>
     </div>
     <br>

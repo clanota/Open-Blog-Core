@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="mdui-card-primary-title">安装向导</div>
     <div class="mdui-card-primary-subtitle">感谢安装Open-Blog-Core-GUI</div>
     </div>
-    <div class="mdui-container">
+    <div class="mdui-card-content">
     <form method="post">
         站点名称：
         <input type="text" name="site_name" placeholder="站点名称" class="mdui-textfield-input" required><br>
@@ -107,7 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="text" name="qq" placeholder="QQ号" class="mdui-textfield-input" required>
         <br>
         <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">立即安装</button>
-        <br>
     </form>
     <div>
     </div>
