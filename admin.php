@@ -236,7 +236,6 @@ if (isset($_GET['logout'])) {
     <?php 
     foreach (array_reverse($posts) as $post): 
     ?>
-        <div>
             <h4><?= $post['title'] ?></h4>
             <p><?= $post['date'] ?></p>
             <p><?= $post['content'] ?></p>
@@ -246,10 +245,9 @@ if (isset($_GET['logout'])) {
             </div>
             <div class="mdui-col">
             <a href="?edit=<?= $post['id'] ?>" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">编辑</a>
-            </div>
+        </div>
         </div>
     <?php endforeach; ?>
-    </div>
     </div>
     </div>
     <br>
