@@ -262,7 +262,7 @@ if (isset($_GET['logout'])) {
      前端编写：曦予<br>
      后端编写：Trae IDE & 曦予<br>
      头像API：Tencent QQ<br>
-     当前版本：V25.3.31<br>
+     当前版本：V25.4.2<br>
      『愿一生可爱，一生被爱』
     </div>
     </div>
