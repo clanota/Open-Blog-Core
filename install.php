@@ -93,20 +93,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="mdui-card">
     <div class="mdui-card-primary">
     <div class="mdui-card-primary-title">安装向导</div>
-    <div class="mdui-card-primary-subtitle">感谢安装Open-Blog-Core-GUI</div>
+    <div class="mdui-card-primary-subtitle">感谢安装 OpenBlogCore-GUI</div>
     </div>
     <div class="mdui-card-content">
     <form method="post">
-        站点名称：
-        <input type="text" name="site_name" placeholder="站点名称" class="mdui-textfield-input" required><br>
-        站点描述：
-        <textarea name="site_description" class="mdui-textfield-input" placeholder="站点描述" required style="min-height: 1em; overflow: hidden; resize: none;" oninput="this.style.height = ''; this.style.height = Math.min(this.scrollHeight, 500) + 'px'"></textarea><br>
-        管理员密码：
-        <input type="password" name="password" placeholder="管理员密码" class="mdui-textfield-input" required><br>
-        QQ号：
-        <input type="text" name="qq" placeholder="QQ号" class="mdui-textfield-input" required>
-        <br>
-        <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">立即安装</button>
+        <div class="mdui-textfield">
+            <label class="mdui-textfield-label">站点名称</label>
+            <input type="text" name="site_name" placeholder="站点名称" class="mdui-textfield-input" required/>
+        </div>
+        <div class="mdui-textfield">
+            <label class="mdui-textfield-label">站点描述</label>
+            <input type="text" name="site_description" placeholder="站点描述" class="mdui-textfield-input" required></textarea>
+        </div>
+        <div class="mdui-textfield">
+            <label class="mdui-textfield-label">管理员密码</label>
+            <input type="password" name="password" placeholder="管理员密码" class="mdui-textfield-input" required/>
+        </div>
+        <div class="mdui-textfield">
+            <label class="mdui-textfield-label">QQ号</label>
+            <input type="text" name="qq" placeholder="QQ号" class="mdui-textfield-input" required/>
+        </div>
+        <div class="mdui-card-actions">
+            <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">立即安装</button>
+        </div>
     </form>
     <div>
     </div>

@@ -52,14 +52,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="mdui-card">
     <div class="mdui-card-primary">
     <div class="mdui-card-primary-title">管理员登录</div>
-    <div class="mdui-card-primary-subtitle">请输入密码</div>
+    <div class="mdui-card-primary-subtitle">请输入管理员密码</div>
     </div>
     <div class="mdui-card-content">
     <form method="post">
     <div class="mdui-textfield">
-    <input type="password" name="password" placeholder="管理员密码" class="mdui-textfield-input" required>
+    <label class="mdui-textfield-label">管理员密码</label>
+    <input type="password" name="password" class="mdui-textfield-input" placeholder="管理员密码" required>
     </div>
-    <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">登录后台</button>
+    <div class="mdui-card-actions">
+        <div class="mdui-row-xs-2">
+            <div class="mdui-col">
+                <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">登录后台</button>
+            </div>
+            <div class="mdui-col">
+                <a href="index.php" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">返回首页</a>
+            </div>
+        </div>
+    </div>
     </form>
     </div>
     </div>

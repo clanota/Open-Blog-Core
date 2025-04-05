@@ -162,18 +162,29 @@ if (isset($_GET['logout'])) {
     </div>
     <div class="mdui-card-content">
     <form method="post" action="?config=1">
-    站点名称：
-    <input type="text" name="site_name" value="<?= $config['site_name'] ?? '' ?>" class="mdui-textfield-input" placeholder="站点名称" required><br>
-    站点描述：
-    <textarea name="site_description" class="mdui-textfield-input" placeholder="站点描述" required style="min-height: 1em; overflow: hidden; resize: none;" oninput="this.style.height = ''; this.style.height = Math.min(this.scrollHeight, 500) + 'px'"><?= $config['site_description'] ?? '' ?></textarea>
-    <br>
-    QQ号：
-    <input type="text" name="qq" placeholder="QQ号" class="mdui-textfield-input" value="<?= $config['qq'] ?? '' ?>" required><br>
-    自定义CSS：
-    <textarea name="custom_css" class="mdui-textfield-input" placeholder="自定义CSS代码" style="min-height: 1em; overflow: hidden; resize: none;" oninput="this.style.height = ''; this.style.height = Math.min(this.scrollHeight, 500) + 'px'"><?= $config['custom_css'] ?? '' ?></textarea><br>
-    自定义JS：
-    <textarea name="custom_js" class="mdui-textfield-input" placeholder="自定义JavaScript代码" style="min-height: 1em; overflow: hidden; resize: none;" oninput="this.style.height = ''; this.style.height = Math.min(this.scrollHeight, 500) + 'px'"><?= $config['custom_js'] ?? '' ?></textarea><br>
-    <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">保存配置</button>
+    <div class="mdui-textfield">
+    <label class="mdui-textfield-label">站点名称</label>
+    <input type="text" name="site_name" value="<?= $config['site_name'] ?? '' ?>" class="mdui-textfield-input" placeholder="站点名称" required>
+</div>
+    <div class="mdui-textfield">
+    <label class="mdui-textfield-label">站点描述</label>
+    <input type="text" name="site_description" class="mdui-textfield-input" placeholder="站点描述" value="<?= $config['site_description'] ?? '' ?>" required>
+</div>
+    <div class="mdui-textfield">
+    <label class="mdui-textfield-label">QQ号</label>
+    <input type="text" name="qq" placeholder="QQ号" class="mdui-textfield-input" value="<?= $config['qq'] ?? '' ?>" required>
+</div>
+    <div class="mdui-textfield">
+    <label class="mdui-textfield-label">自定义CSS代码</label>
+    <textarea name="custom_css" class="mdui-textfield-input" placeholder="自定义CSS代码" rows="3"><?= $config['custom_css'] ?? '' ?></textarea>
+</div>
+    <div class="mdui-textfield">
+    <label class="mdui-textfield-label">自定义JavaScript代码</label>
+    <textarea name="custom_js" class="mdui-textfield-input" placeholder="自定义JavaScript代码" rows="3"><?= $config['custom_js'] ?? '' ?></textarea>
+</div>
+    <div class="mdui-card-actions">
+        <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">保存配置</button>
+    </div>
     </form>
     </div>
     </div>
@@ -185,24 +196,31 @@ if (isset($_GET['logout'])) {
     </div>
     <div class="mdui-card-content">
     <form method="post">
-        旧密码：
-        <input type="password" name="old_password" placeholder="旧密码" class="mdui-textfield-input" required><br>
-        新密码：
-        <input type="password" name="new_password" placeholder="新密码" class="mdui-textfield-input" required><br>
-        确认新密码：
+        <div class="mdui-textfield">
+        <label class="mdui-textfield-label">旧密码</label>
+        <input type="password" name="old_password" placeholder="旧密码" class="mdui-textfield-input" required>
+</div>
+        <div class="mdui-textfield">
+        <label class="mdui-textfield-label">新密码</label>
+        <input type="password" name="new_password" placeholder="新密码" class="mdui-textfield-input" required>
+</div>
+        <div class="mdui-textfield">
+        <label class="mdui-textfield-label">确认新密码</label>
         <input type="password" name="confirm_password" placeholder="确认新密码" class="mdui-textfield-input" required>
-        <br>
-    <div class="mdui-row-xs-3">
-        <div class="mdui-col">
-        <button type="submit" name="change_password" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">修改密码</button>
+</div>
+    <div class="mdui-card-actions">
+        <div class="mdui-row-xs-3">
+            <div class="mdui-col">
+                <button type="submit" name="change_password" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">修改密码</button>
+            </div>
+            <div class="mdui-col">
+                <a href="index.php" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">前往首页</a>
+            </div>
+            <div class="mdui-col">
+                <a href="admin.php?logout=1" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">退出登录</a>
+            </div>
         </div>
-        <div class="mdui-col">
-        <a href="index.php" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">前往首页</a>
-        </div>
-        <div class="mdui-col">
-        <a href="admin.php?logout=1" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">退出登录</a>
-        </div>
-        </div>
+    </div>
     </form>
     </div>
     </div>
@@ -214,15 +232,20 @@ if (isset($_GET['logout'])) {
     </div>
     <div class="mdui-card-content">
     <form method="post">
-       标题：
-        <input type="text" name="title" placeholder="标题" class="mdui-textfield-input" value="<?= isset($editPost) ? $editPost['title'] : '' ?>" required><br>
-        内容：
-        <textarea name="content" placeholder="内容" class="mdui-textfield-input" required style="min-height: 1em; overflow: hidden; resize: none;" oninput="this.style.height = ''; this.style.height = Math.min(this.scrollHeight, 500) + 'px'"><?= isset($editPost) ? $editPost['content'] : '' ?></textarea>
+       <div class="mdui-textfield">
+        <label class="mdui-textfield-label">文章标题</label>
+        <input type="text" name="title" placeholder="文章标题" class="mdui-textfield-input" value="<?= isset($editPost) ? $editPost['title'] : '' ?>" required>
+</div>
+        <div class="mdui-textfield">
+        <label class="mdui-textfield-label">文章内容</label>
+        <textarea name="content" placeholder="文章内容" class="mdui-textfield-input" required rows="10"><?= isset($editPost) ? $editPost['content'] : '' ?></textarea>
+</div>
         <?php if (isset($editPost)): ?>
         <input type="hidden" name="date" value="<?= $editPost['date'] ?>">
         <?php endif; ?>
-        <br>
-        <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">发布文章</button>
+        <div class="mdui-card-actions">
+            <button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">发布文章</button>
+        </div>
     </form>
    </div>
    </div>
@@ -234,20 +257,26 @@ if (isset($_GET['logout'])) {
     </div>
     <div class="mdui-card-content">
     <?php 
-    foreach (array_reverse($posts) as $post): 
+    if (empty($posts)) {
+        echo '<div class="mdui-card-content">暂无文章</div>';
+    } else {
+        foreach (array_reverse($posts) as $post): 
     ?>
             <h4><?= $post['title'] ?></h4>
             <p><?= $post['date'] ?></p>
             <p><?= $post['content'] ?></p>
-            <div class="mdui-row-xs-2">
-            <div class="mdui-col">
-            <a href="?delete=<?= $post['id'] ?>" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">删除</a>
+            <div class="mdui-card-actions">
+                <div class="mdui-row-xs-2">
+                    <div class="mdui-col">
+                        <a href="?delete=<?= $post['id'] ?>" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">删除</a>
+                    </div>
+                    <div class="mdui-col">
+                        <a href="?edit=<?= $post['id'] ?>" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">编辑</a>
+                    </div>
+                </div>
             </div>
-            <div class="mdui-col">
-            <a href="?edit=<?= $post['id'] ?>" class="mdui-btn mdui-btn-raised mdui-ripple mdui-btn-block">编辑</a>
-        </div>
-        </div>
-    <?php endforeach; ?>
+    <?php endforeach; }
+    ?>
     </div>
     </div>
     <br>
@@ -262,7 +291,7 @@ if (isset($_GET['logout'])) {
      前端编写：曦予<br>
      后端编写：Trae IDE & 曦予<br>
      头像API：Tencent QQ<br>
-     当前版本：V25.4.2<br>
+     当前版本：V25.4.5<br>
      『愿一生可爱，一生被爱』
     </div>
     </div>
